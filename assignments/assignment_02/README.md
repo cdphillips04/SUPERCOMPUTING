@@ -14,7 +14,7 @@ exit
 
 Task 2: Downloading files via Command-Line FTP (except I have Windows, so WinSCP)
 
-I had to use WinSCP to do task 2 since I have a Windows laptop. Since I just dragged the data into the SUPERCOMPUTING directory, I had to move my files with using the commands
+I had to use WinSCP to do task 2 since I have a Windows laptop. Since I just dragged the data into the SUPERCOMPUTING directory, I had to move my files using the commands
 
 mv GCF_000005845.2_ASM584v2_genomic.fna.gz assignments/assignment_02/data 
 
@@ -68,5 +68,7 @@ The alias d returns to the previous directory you were in, clears the screen, pr
 
 The alias ll lists (ls) the long format (l) of all files--including hidden ones (a)--with the size in a human-readable format (h) and with symbols to show the file type (F). The directories are listed first.
 
-The hardest part of this assignment was troubleshooting task 2, the FTP file download. I made a change to my Windows firewall (which I got rid of after it didn’t work) and tried a few commands, but none of it worked. A caveat for Windows users would’ve been nice, but I learned the hard way that Windows is not cooperative. I found the rest of this assignment to be very straightforward. I did not have any more technology troubles.
+The last thing I did before pushing this assignment was make a .gitignore file for my SUPERCOMPUTING repo and add the data folder for this assignment because I did not want to push all this data to GitHub. I just used vim to make the file and added the path to the folder.
+
+The hardest part of this assignment was troubleshooting task 2, the FTP file download. I made a change to my Windows firewall (which I got rid of after it didn’t work) and tried a few different passive commands, but none of it worked. After spending about an hour trying to find a solution, I learned the hard way that Windows is not cooperative. I found the rest of this assignment to be very straightforward. I did not have any more technology troubles.
 
