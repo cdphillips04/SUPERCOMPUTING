@@ -6,6 +6,7 @@ mkdir data
 Task 2:
 cd data
 wget https://gzahn.github.io/data/GCF_000001735.4_TAIR10.1_genomic.fna.gz
+
 gunzip GCF_000001735.4_TAIR10.1_genomic.fna.gz
 
 Task 3:
@@ -24,7 +25,7 @@ used tr --help when getting error "tr: when not truncating set1, string2 must be
 5. grep ">" GCF_000001735.4_TAIR10.1_genomic.fna | grep "chromosome" GCF_000001735.4_TAIR10.1_genomic.fna |
  wc -l
 
-6. 
+6. paste <(grep -v "^>" GCF_000001735.4_TAIR10.1_genomic.fna | head -n 1 | wc -c) <(grep -v "^>" GCF_000001735.4_TAIR10.1_genomic.fna | head -n 2 | tail -n 1 | wc -c) <(grep -v "^>" GCF_000001735.4_TAIR10.1_genomic.fna | head -n 3 | tail -n 1 | wc -c) 
 
 7. head -n 10 GCF_000001735.4_TAIR10.1_genomic.fna | tail -n 1 | grep -i "[A,G,C,T,U]" | wc -c
 
@@ -33,3 +34,5 @@ used tr --help when getting error "tr: when not truncating set1, string2 must be
 9. grep "^>" GCF_000001735.4_TAIR10.1_genomic.fna | sort | head -n 1
 
 10. paste <(grep "^>" GCF_000001735.4_TAIR10.1_genomic.fna) <(grep -v "^>" GCF_000001735.4_TAIR10.1_genomic.fna)
+
+Reflection:
