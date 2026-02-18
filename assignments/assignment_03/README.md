@@ -24,25 +24,42 @@ Task 3: Using Unix tools (run these commands from the data directory)
 
 (or grep -c ">" GCF_000001735.4_TAIR10.1_genomic.fna also works)
 
+Answer: 7
+
 2. grep -v "^>" GCF_000001735.4_TAIR10.1_genomic.fna | tr -d "\n" | wc -c
 
 used tr --help when getting error "tr: when not truncating set1, string2 must be non-empty" when I didn't use -d but instead tried to replace "\n" with ""
 
+Answer: 119668634
 
 3. wc -l GCF_000001735.4_TAIR10.1_genomic.fna
 
+Answer: 14
+
 4. grep ">" GCF_000001735.4_TAIR10.1_genomic.fna | grep "mitochondrion" GCF_000001735.4_TAIR10.1_genomic.fna | wc -l
+
+Answer: 1
 
 5. grep ">" GCF_000001735.4_TAIR10.1_genomic.fna | grep "chromosome" GCF_000001735.4_TAIR10.1_genomic.fna |
  wc -l
 
+Answer: 5
+
 6. paste <(grep -v "^>" GCF_000001735.4_TAIR10.1_genomic.fna | head -n 1 | wc -c) <(grep -v "^>" GCF_000001735.4_TAIR10.1_genomic.fna | head -n 2 | tail -n 1 | wc -c) <(grep -v "^>" GCF_000001735.4_TAIR10.1_genomic.fna | head -n 3 | tail -n 1 | wc -c) 
+
+Answer: 30427672  19698290  23459831
 
 7. head -n 10 GCF_000001735.4_TAIR10.1_genomic.fna | tail -n 1 | grep -i "[A,G,C,T,U]" | wc -c
 
+Answer: 26975503
+
 8. grep "AAAAAAAAAAAAAAAA" GCF_000001735.4_TAIR10.1_genomic.fna | wc -l
 
+Answer: 1
+
 9. grep "^>" GCF_000001735.4_TAIR10.1_genomic.fna | sort | head -n 1
+
+Answer: >NC_000932.1 . . .
 
 10. paste <(grep "^>" GCF_000001735.4_TAIR10.1_genomic.fna) <(grep -v "^>" GCF_000001735.4_TAIR10.1_genomic.fna)
 
