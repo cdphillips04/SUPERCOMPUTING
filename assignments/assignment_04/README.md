@@ -22,7 +22,7 @@ I got the file name and saved it to a parameter using file_name=$1. I echoed thi
 
 To calculate the number of nucleotides, I used these commands: grep -v "^>" ${file_name} | tr -d "\n" | wc -c). grep finds lines not starting with “>” (so it excludes header lines), then tr gets rid of new line characters, and wc counts the number of characters.
 
-To get a table of sequence names and lengths, I used this command with echo: $(seqtk comp ${file_name} | cut -f1,2). The first column returned by comp is the sequence name, and the second column is the sequence length. I piped the output to cut and specified just the first two columns, which results in a tab separated table of just names and lengths.
+To get a table of sequence names and lengths, I used this command with echo: \$(seqtk comp \${file_name} | cut -f1,2). The first column returned by comp is the sequence name, and the second column is the sequence length. I piped the output to cut and specified just the first two columns, which results in a tab separated table of just names and lengths.
 
 Finally, I added export PATH=$PATH:/sciclone/home/cdphillips/SUPERCOMPUTING/assignments/assignment_04 to my ~/.bashrc.
 
@@ -39,5 +39,5 @@ This for loop showed the output for all files ending in .fna one after the other
 
 Task 10:
 
-I don’t think I had any big challenges with this assignment. I learned a few features that seqtk offers, including counts from the comp command that we could also get using grep. I thought this assignment was good to reinforce the for loop file syntax and how to use it with files. I also thought it was helpful to practice making scripts with bash commands, especially with getting the formatting down for command substitutions and accessing variables within these scripts. I’m excited to see more of what seqtk can do. $PATH is the directories looked at when commands are run, so it’s good to add directories there so you don’t have to use the full path to that directory. When I did this assignment, I made sure my assignment_04 directory was added and also added the seqtk directory in task 6.
+I don’t think I had any big challenges with this assignment. I learned a few features that seqtk offers, including counts from the comp command that we could also get using grep. I thought this assignment was good to reinforce the for loop syntax and how to use it with files. I also thought it was helpful to practice making scripts with bash commands, especially with getting the formatting down for command substitutions and accessing variables within these scripts. I’m excited to see more of what seqtk can do. $PATH is the directories looked at when commands are run, so it’s good to add directories there so you don’t have to use the full path to that directory. When I did this assignment, I made sure my assignment_04 directory was added and also added the seqtk directory in task 6.
 
