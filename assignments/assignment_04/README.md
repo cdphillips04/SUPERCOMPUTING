@@ -22,7 +22,7 @@ I got the file name and saved it to a parameter using file_name=$1. I echoed thi
 
 To calculate the number of nucleotides, I used these commands: grep -v "^>" ${file_name} | tr -d "\n" | wc -c). grep finds lines not starting with “>” (so it excludes header lines), then tr gets rid of new line characters, and wc counts the number of characters.
 
-To get a table of sequence names and lengths, I used this command with echo: \$(seqtk comp \${file_name} | cut -f1,2). The first column returned by comp is the sequence name, and the second column is the sequence length. I piped the output to cut and specified just the first two columns, which results in a tab separated table of just names and lengths.
+To get a table of sequence names and lengths, I used this command with echo: `$(seqtk comp ${file_name} | cut -f1,2)`. The first column returned by comp is the sequence name, and the second column is the sequence length. I piped the output to cut and specified just the first two columns, which results in a tab separated table of just names and lengths.
 
 Finally, I added export PATH=$PATH:/sciclone/home/cdphillips/SUPERCOMPUTING/assignments/assignment_04 to my ~/.bashrc.
 
