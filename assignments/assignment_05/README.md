@@ -16,6 +16,8 @@ I set up the script in the scripts folder and used wget to get the data file fro
 
 ### Task 3:
 
+I first put myself in my programs directory with the command `cd ~/programs`.
+
 I installed the pre-built binary of fastp using the following commands from the [fastp GitHub repository](https://github.com/OpenGene/fastp?tab=readme-ov-file#or-download-the-latest-prebuilt-binary-for-linux-users).
 
 ```
