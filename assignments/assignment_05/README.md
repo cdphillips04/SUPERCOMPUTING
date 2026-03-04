@@ -6,14 +6,14 @@ File locations:
 - The fastp tool is in my ~/programs directory on the HPC
 - 02\_run\_fastp.sh is in assignment\_05/scripts
 - The trimmed fastq files are in assignment\_05/data/trimmed
-- Log files from running fastq are in assignment\_05/log
 
 ### Task 1:
 
 ```
 cd SUPERCOMPUTING
-cd assignments_assignment_05
+cd assignments/assignment_05
 mkdir scripts
+mkdir log
 mkdir data data/raw data/trimmed
 ```
 
@@ -21,7 +21,7 @@ I also added the assignment 5 data folder to my SUPERCOMPUTING .gitignore by usi
 
 ### Task 2:
 
-I set up the script in the scripts folder and used wget to get the data file from online. To extract the contents, I used the tar command and just the -xf flags since the file was just a tar file and not gzipped. I moved all files ending in \*.fastq.gz in my raw data folder using `mv *.fastq.gz ../data/raw` and then removed the fastq\_examples.tar file.
+I set up the script in the scripts folder, had the script open data/raw/, and used wget to get the data file from online. To extract the contents, I used the tar command and just the -xf flags since the file was just a tar file and not gzipped. I removed the fastq\_examples.tar file.
 
 ### Task 3:
 
@@ -40,7 +40,7 @@ I made sure that the location of fastp (my programs directory) is in my ~./bashr
 
 ### Task 4:
 
-I used the lines provided in the hint as the basis to write my 02\_run\_fastp.sh, but I still had to add lines to make sure my data files and log files ended up in the right folders. 
+I used the lines provided in the hint as the basis to write my 02\_run\_fastp.sh, but I still had to add lines to make sure my data files ended up in the right folders. 
 
 I first got the forward input file name by using $1, and then got the reverse name by switching R1 to R2 via pattern replacement. Then I used pattern replacement to change the file path from including data/raw to data/trimmed for the trimmed data because I wanted it in the trimmed folder.
 
@@ -48,7 +48,7 @@ I tested this script with `bash ./scripts/02_run_fastp.sh ./data/raw/6083_001_S1
 
 ### Task 5:
 
-In pipeline.sh, I made sure both of the other scripts were executable using chmod. Then I wrote a for loop for all files containing R1 in the raw data folder that would run the fastp script for each file. This script is ran from the assignment\_05 directory, so I made sure that the file paths in my scripts were correct for this. I also made this script executable using `chmod +x pipeline.sh`.
+In pipeline.sh, I made sure both of the other scripts were executable using chmod. Then I wrote a for loop for all files containing R1 in the raw data folder that would run the fastp script for each file. This pipeline is ran from the assignment\_05 directory, so I made sure that the file paths in my scripts were correct for this. I also made this script executable using `chmod +x pipeline.sh`.
 
 ### About the pipeline:
 
