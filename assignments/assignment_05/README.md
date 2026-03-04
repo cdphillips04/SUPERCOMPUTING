@@ -44,10 +44,12 @@ I used the lines provided in the hint as the basis to write my 02\_run\_fastp.sh
 
 I first got the forward input file name by using $1, and then got the reverse name by switching R1 to R2 via pattern replacement. Then I used pattern replacement to change the file path from including data/raw to data/trimmed for the trimmed data because I wanted it in the trimmed folder.
 
-To make the log file names, I changed the data/raw part of the forward input file name to log with pattern replacement. I used substring trimming to remove anything matching the pattern \_R[12]\*, which would leave me with a name like log/6083\_001\_S1. When I used the --json and --html parameters in the fastp command, I just tacked either .json or .html onto the log file name for the corresponding parameter.
-
 I tested this script with `bash ./scripts/02_run_fastp.sh ./data/raw/6083_001_S1_R1_001.subset.fastq.gz` and confirmed that all files were in the correct locations.
 
 ### Task 5:
 
-In pipeline.sh, I made sure both of the other scripts were executable using chmod. Then I wrote a for loop for all files containing R1 in the raw data folder that would run the fastp script for each file.
+In pipeline.sh, I made sure both of the other scripts were executable using chmod. Then I wrote a for loop for all files containing R1 in the raw data folder that would run the fastp script for each file. This script is ran from the assignment\_05 directory, so I made sure that the file paths in my scripts were correct for this.
+
+### Task 7:
+
+To run the pipeline, use the command `./pipeline`. Users should have a data directory that holds a raw directory and a trimmed directory so the raw and trimmed data can be put in the respective folders. This pipeline will 
