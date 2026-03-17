@@ -1,7 +1,7 @@
 #!/bin/bash
-set -ueo pipefail
 
-for FWD in data/*_R1_*
+# might need to set DATA_DIR="/sciclone/scr10/gzdata440/lesson_05/data" here too
+for FWD in ${DATA_DIR}/*_R1_*
 do 
 REV=${FWD/_R1_/_R2_} 
 OUT=${FWD%_L001_R1_sample.fastq}_interleaved_chop_${1}.fastq
