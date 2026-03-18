@@ -13,4 +13,3 @@ flye -v
 
 conda env export --no-builds > flye-env.yml
 
-conda deactivate
