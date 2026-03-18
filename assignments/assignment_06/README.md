@@ -33,3 +33,24 @@ After making the file with `vi ./scripts/02_flye_2.9.6_conda_install.sh`, I load
 
 ### Task 5: deciphering Flye
 
+`flye --nano-raw ./data/SRR33939694.fastq.gz --out-dir ./assemblies --threads 6`
+
+This command uses --nano-raw for nanopores, 6 cores, and puts outputs in the assemblies directory. For each of the 3 ways to run Flye below, I would change the output files to go to ./assemblies/name\_of\_env instead of just ./assemblies. ./data/SRR33939694.fastq.gz is the path to the data to use.
+
+I found [this Flye manual](https://gensoft.pasteur.fr/docs/Flye/2.9/USAGE.html#:~:text=Input%20data%20preparation,might%20lead%20to%20assembly%20gaps.) to be helpful as it described the flags and parameters.
+
+### Task 6A: conda 
+
+The script 03\_run\_flye\_conda.sh is in the scripts directory and is made executable by `chmod +x ./scripts/03_run_flye_conda.sh`. It loads the miniforge3 model, activates flye-env, makes the assembly\_conda directory inside the assemblies directory, and runs the flye command that I wrote for task 5. The outputs are put in the assembly\_conda directory. I used the mv command to rename assembly.fasta to conda\_assembly.fasta and flye.log to conda\_flye.log, and then had the script go into assembly\_conda to remove all files that aren’t flye.log and conda\_assembly.fasta.
+
+To remove these files, I used the command `rm -r $(ls | grep -v -e 'conda_assembly.fasta' -e 'conda_flye.log')`. I did command substitution to show everything in the directory, and selected everything not named one of the two specified files. These files and directories were then removed with rm -r, which deletes files, directories, and anything inside them.
+
+
+### Task 6B: module
+
+The script 03\_run\_flye\_module.sh is in the scripts directory and is made executable by `chmod +x ./scripts/03_run_flye_module.sh`. The script first loads the module on the HPC using `module load Flye/gcc-11.4.1/2.9.6`. After this line, all lines are almost exactly the same as in the task 6A conda script for making the output directory running flye, renaming files, and removing clutter. 
+
+### Task 6C: local
+
+The script 03\_run\_flye\_local.sh is in the scripts directory and is made executable by `chmod +x scripts/03_run_flye_local.sh`. The script makes the output directory, runs flye with the command `python ~/programs/Flye/bin/flye --nano-raw ./data/SRR33939694.fastq.gz --out-dir ./assemblies/assembly_local --threads 6`, and cleans up the files like the other versions of this script. I had to use python and the path name to the flye executable as I was unable to get flye to execute any other way for the local build.
+
