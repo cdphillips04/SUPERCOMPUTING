@@ -2,6 +2,10 @@
 
 set -ueo pipefail
 
+# make data and assemblies directories
+mkdir data
+mkdir assemblies
+
 # download data
 ./scripts/01_download_data.sh
 
