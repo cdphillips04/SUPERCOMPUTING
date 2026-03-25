@@ -8,3 +8,6 @@ lessons/lesson_06/data
 lessons/lesson_06/output
 assignments/assignment_06/data
 assignments/assignment_06/assemblies
+assignments/assignment_07/data/clean/*
+assignments/assignment_07/data/dog_reference/*
+assignments/assignment_07/data/raw/*
