@@ -1,8 +1,13 @@
 #!/bin/bash
 
+set -ueo pipefail
+
 # download data using the run table
 for f in $(cat ./data/SraRunTable.csv | cut -d "," -f 1 | tail -n +2)
-do fasterq-dump ${f} -O ./data/raw --gzip
+do 
+	fasterq-dump ${f} -O ./data/raw -e 16
+	gzip ./data/raw/${f}_1.fastq
+	gzip ./data/raw/${f}_2.fastq
 done
 
 # download dog reference genome
