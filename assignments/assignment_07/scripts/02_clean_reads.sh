@@ -17,5 +17,5 @@ do
 	REV=${FWD/_1.fastq.gz/_2.fastq.gz}
 	FWDOUT=${CLEAN_DIR}/${f}_1_clean.fastq.gz
 	REVOUT=${FWDOUT/_1_clean.fastq.gz/_2_clean.fastq.gz}
-	fastp -i ${FWD} -I ${REV} -o ${FWDOUT} -O ${REVOUT} --html /dev/null --json /dev/null -w 16
+	fastp -i ${FWD} -I ${REV} -o ${FWDOUT} -O ${REVOUT} --html /dev/null --json /dev/null -w 8
 done

@@ -13,7 +13,7 @@ OUTPUT_DIR=${HW_DIR}/output
 # download data using the run table
 for f in $(cat ./data/SraRunTable.csv | cut -d "," -f 1 | tail -n +2)
 do 
-	fasterq-dump "${f}" -O "${RAW_DIR}" -e 16
+	fasterq-dump "${f}" -O "${RAW_DIR}" -e 8
 	gzip "${RAW_DIR}/${f}_1.fastq"
 	gzip "${RAW_DIR}/${f}_2.fastq"
 done
