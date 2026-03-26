@@ -29,7 +29,7 @@ This line is also in 03\_map\_reads.sh. I provide the samtools command with the 
 
 ### Task 6: slurm script
 
-This is stored as assignment\_7\_pipeline.slurm. The stdout and stderr are given absolute paths to /sciclone/home/cdphillips/scr10/assignment\_7/output/\[file name\]. The three scripts are made executable using chmod and called in the slurm script.
+This is stored as assignment\_7\_pipeline.slurm. The stdout and stderr are given absolute paths to /sciclone/home/cdphillips/scr10/assignment\_7/output/\[file name\]. The three scripts are made executable using chmod and called in the slurm script. The pipeline can be submitted with sbatch assignment\_7\_pipeline.slurm.
 
 ### Task 8: inspecting results
 
