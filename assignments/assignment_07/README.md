@@ -8,7 +8,7 @@ I made 00\_setup.sh to make my data and output directories in scr10. I made the 
 
 The search terms I used to pick 10 accessions were (("metagenomic"\[Source\]) AND "illumina"\[Platform\]) AND "random"\[Selection\]. This file is SraRunTable.csv and is in the data directory of assignment\_07, which I got there by using WinSCP. 
 
-01\_download\_data.sh has the paths to data and output directories at the top, and then starts by downloading the data using the names from the metadata. The for loop gets the list of data file names in column 1 of the metadata and eliminates the headers. I ran fasterq-dump on each name and put the resulting data files in ~/scr10/assignment\_7/data, and tried 8 threads with the -e flag. The files are gzipped since the other tools used in the assignment can work with fastq.gz files.
+01\_download\_data.sh has the paths to data and output directories at the top, and then starts by downloading the data using the names from the metadata. The for loop gets the list of data file names in column 1 of the metadata and eliminates the headers. I ran fasterq-dump on each name and put the resulting data files in ~/scr10/assignment\_7/data/raw, and tried 8 threads with the -e flag. The files are gzipped since the other tools used in the assignment can work with fastq.gz files.
 
 Outside of the for loop, the next step is downloading the dog reference genome. The “datasets” tool can be used to get the genome for “Canis familiaris”, and the \-\-reference flag ensures that we only get reference data. I named this dog\_reference\_genome.zip, which I then unzipped. I tried the \-j flag, which ignores directory structure, so that I could search only for files ending in “.fna”. The \-d flag puts the .fna file in ~/scr10/data/dog\_reference. The zip file is then removed, and the .fna file is renamed to be dog\_reference\_genome.fna
 
@@ -41,7 +41,7 @@ I found this assignment to definitely be the most challenging of all the ones we
 
 My first mistake was not sending my data to scr10, which led to a few emails that gave me quite the scare and me fixing all of my file paths in the scripts. I made a few typos in the slurm script that were easy to fix, but the biggest problem was the error “Failed to call external services.” which I got in my .err file almost immediately after the job started. I think it is related to fasterq\-dump and how it gets the data using the metadata file name list, however I was unable to find a solution. This was the roadblock that prevented me from seeing if the pipeline worked out, and unfortunately the error only started occurring after I was done changing things late at night before the assignment due date. I figured I should submit what I could for this assignment even though I didn’t get results.
 
-I also think that the scale of this assignment was larger than I expected, so it felt more challenging and also a bit intimidating to (attempt to) use the HPC for.
+I also think that the scale of this assignment was larger than I expected, so it felt more challenging and also a bit intimidating to (attempt to) use the HPC for. I was unsure of how to decide what parameters to choose for the slurm script since I wasn't sure how long the job would take or how many resources I needed.
 
 The biggest thing I’ve learned is to make sure I set up my directories properly and have data go to scr10! I also learned about some parameters needed for the tools used in the scripts, and I think writing for loops was helpful to get comfortable with the syntax.
 
